@@ -1,1 +1,1 @@
-alias git_freshStart="bash '$codexBoxDir/aliases/aliasesBranch/git/git_freshstart.sh'"
+alias git_freshStart="bash '$codexBoxDir/aliases/aliasesBranch/git/git_freshStart.sh'"
