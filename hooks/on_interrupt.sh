@@ -1,0 +1,1 @@
+trap 'echo "❌ Interrupted by user"' INT

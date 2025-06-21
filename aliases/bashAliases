@@ -1,0 +1,51 @@
+# aliases
+alias aliasesEditSrc="$ALIASES_EDITOR '$HOME/CodexBox/aliases/bashAliases'"
+alias codex_aliasesEditOrg="$ALIASES_EDITOR '$HOME/.codex_bashAliases'"
+alias user_aliasesEditOrg="$ALIASES_EDITOR '$HOME/.user_bashAliases'"
+alias aliasesUpdate="rm -rf '$HOME/CodexBox' && rm '$HOME/.bash_aliases' && git clone 'https://github.com/m4sensen/codexBox.git' '$HOME' && bash $HOME/CodexBox/codexBox.sh"
+alias aliasesReload="source ~/.bashrc"
+
+# update
+alias update="bash '$HOME/CodexBox/aliases/aliasesBranch/update.sh'"
+
+# system
+alias poweroff='systemctl poweroff'
+alias reboot='systemctl reboot'
+alias suspend='echo -e "\n💤 You are about to suspend your system.\nSaves your session to RAM (fast wake-up, but data will be lost if power is cut).\nDo you want to proceed? (y/n): " && read confirm && [ "$confirm" == "y" ] && systemctl suspend || echo "Operation canceled."'
+alias hibernate='echo -e "\n❄️ You are about to hibernate your system.\nSaves your session to disk and powers off (slower wake-up, but data is preserved).\nDo you want to proceed? (y/n): " && read confirm && [ "$confirm" == "y" ] && systemctl hibernate || echo "Operation canceled."'
+alias hybridSleep='echo -e "\n🌙 You are about to hybrid-sleep your system.\nCombines suspend (fast wake-up) + hibernate (safe recovery if power is lost).\nDo you want to proceed? (y/n): " && read confirm && [ "$confirm" == "y" ] && systemctl hybrid-sleep || echo "Operation canceled."'
+
+# Log out of current session (for graphical environments)
+alias logout='gnome-session-quit --logout --no-prompt || pkill -KILL -u $USER'
+alias lock='loginctl lock-session || gnome-screensaver-command -l || dm-tool lock || i3lock'
+alias sessionStatus='loginctl show-session $(loginctl | grep $USER | awk "{print \$1}")'
+
+alias disk='lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT'
+alias ram='htop || top'
+alias logs='journalctl -xe'
+alias logsNow='journalctl -f'
+
+# bluetooth aliases
+alias bluetooth='bluetoothctl'
+alias bluetoothOn='bluetoothctl power on'
+alias bluetoothOff='bluetoothctl power off'
+alias bluetoothScanOn='bluetoothctl scan on'
+alias bluetoothScanOff='bluetoothctl scan off'
+alias bluetoothDevices='bluetoothctl devices'
+alias airpodsProConnect='bluetoothctl power on && bluetoothctl connect 00:00:00:00:00:00'
+alias airpodsProDisconnect='bluetoothctl disconnect 00:00:00:00:00:00 && bluetoothctl power off'
+alias bluetoothConnect="bash '$HOME/CodexBox/aliases/aliasesBranch/bluetoothConnect.sh'"
+
+# wifi aliases
+alias wifiOn='nmcli radio wifi on'
+alias wifiOff='nmcli radio wifi off'
+alias wifiDevicesList='nmcli device wifi list'
+alias HomeWifiConnect='nmcli device wifi connect HomeWifi'
+alias wifiConnectedDevices='nmap -sn 192.168.1.0/24'
+alias wifiConnect="bash '$HOME/CodexBox/aliases/aliasesBranch/wifiConnect.sh'"
+
+# waydroid
+alias waydroidStart='waydroid show-full-ui'
+alias waydroidStop='sudo waydroid session stop && sudo waydroid container stop'
+alias waydroidUninstall="bash '$HOME/CodexBox/aliases/aliasesBranch/waydroidUninstall.sh'"
+alias waydroidShareDownloads='sudo mount --bind ~/Downloads ~/.local/share/waydroid/data/media/0/Download'
