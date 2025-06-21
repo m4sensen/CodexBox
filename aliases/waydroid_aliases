@@ -1,0 +1,4 @@
+alias waydroidStart='waydroid show-full-ui'
+alias waydroidStop='sudo waydroid session stop && sudo waydroid container stop'
+alias waydroidUninstall="bash '$HOME/CodexBox/aliases/aliasesBranch/waydroidUninstall.sh'"
+alias waydroidShareDownloads='sudo mount --bind ~/Downloads ~/.local/share/waydroid/data/media/0/Download'

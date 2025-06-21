@@ -1,0 +1,88 @@
+# === Loading hooks === #
+
+if [ -f "$codexBoxDir/hooks/on_interrupt.sh" ]; then
+  source "$codexBoxDir/hooks/on_interrupt.sh"
+else
+  echo "❌ Missing: $codexBoxDir/hooks/on_interrupt.sh"
+  echo "Exiting CodexBox..."
+  sleep 10
+  exit 1
+  
+fi
+
+# === Loading accessories ==== #
+
+if [ -f "$codexBoxDir/config/accessories/colors.sh" ]; then
+  source "$codexBoxDir/config/accessories/colors.sh"
+else
+  echo "❌ Missing: $codexBoxDir/config/accessories/colors.sh"
+  echo "Exiting CodexBox..."
+  sleep 10
+  exit 1
+fi
+
+if [ -f "$codexBoxDir/config/accessories/emojis.sh" ]; then
+  source "$codexBoxDir/config/accessories/emojis.sh"
+else
+  echo "❌ Missing: $codexBoxDir/config/accessories/emojis.sh"
+  echo "Exiting CodexBox..."
+  sleep 10
+  exit 1
+fi
+
+# === Loading functions ==== #
+
+if [ -f "$codexBoxDir/functions/log.sh" ]; then
+  source "$codexBoxDir/functions/log.sh"
+else
+  echo "❌ Missing: $codexBoxDir/functions/log.sh"
+  echo "Exiting CodexBox..."
+  sleep 10
+  exit 1
+fi
+
+if [ -f "$codexBoxDir/functions/optional_file.sh" ]; then
+  source "$codexBoxDir/functions/optional_file.sh"
+else
+  echo "❌ Missing: $codexBoxDir/functions/optional_file.sh"
+  
+  echo "Exiting CodexBox..."
+  sleep 10
+  exit 1
+fi
+
+if [ -f "$codexBoxDir/functions/require_file.sh" ]; then
+  source "$codexBoxDir/functions/require_file.sh"
+else
+  echo "❌ Missing: $codexBoxDir/functions/require_file.sh"
+  echo "Exiting CodexBox..."
+  sleep 10
+  exit 1
+fi
+
+if [ -f "$codexBoxDir/functions/setup_editor.sh" ]; then
+  source "$codexBoxDir/functions/setup_editor.sh"
+else
+  echo "❌ Missing: $codexBoxDir/functions/setup_editor.sh"
+  echo "Exiting CodexBox..."
+  sleep 10
+  exit 1
+fi
+
+# === Loading default_editor === #
+
+require_file "$codexBoxDir/config/default_editor"
+
+# === Loading userAliases and codexAliases === #
+
+require_file "$codexBoxDir/aliases/bluetooth_aliases"
+
+require_file "$codexBoxDir/aliases/codex_box_aliases"
+
+require_file "$codexBoxDir/aliases/system_aliases"
+
+require_file "$codexBoxDir/aliases/waydroid_aliases"
+
+require_file "$codexBoxDir/aliases/wifi_aliases"
+
+require_file "$codexBoxDir/aliases/git_aliases"

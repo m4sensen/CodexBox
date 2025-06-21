@@ -1,0 +1,6 @@
+alias wifiOn='nmcli radio wifi on'
+alias wifiOff='nmcli radio wifi off'
+alias wifiDevicesList='nmcli device wifi list'
+alias HomeWifiConnect='nmcli device wifi connect HomeWifi'
+alias wifiConnectedDevices='nmap -sn 192.168.1.0/24'
+alias wifiConnect="bash '$HOME/CodexBox/aliases/aliasesBranch/wifiConnect.sh'"

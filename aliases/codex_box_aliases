@@ -1,0 +1,5 @@
+alias aliasesEditSrc="$ALIASES_EDITOR '$HOME/CodexBox/aliases/bashAliases'"
+alias codex_aliasesEditOrg="$ALIASES_EDITOR '$HOME/.codex_bashAliases'"
+alias user_aliasesEditOrg="$ALIASES_EDITOR '$HOME/.user_bashAliases'"
+alias aliasesUpdate="rm -rf '$HOME/CodexBox' && rm '$HOME/.bash_aliases' && git clone 'https://github.com/m4sensen/codexBox.git' '$HOME' && bash $HOME/CodexBox/codexBox.sh"
+alias aliasesReload="source ~/.bashrc"
