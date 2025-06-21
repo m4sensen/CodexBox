@@ -21,11 +21,14 @@ git clone "https://github.com/m4sensen/codexBox.git" "$HOME"
 To make CodexBox available every time you open a new shell session, add the following lines to your `~/.bashrc` file:
 
 ```bash
+codexBoxDir="$HOME/CodexBox"
+
 if [ -f "$codexBoxDir/config/paths/src" ]; then
   source "$codexBoxDir/config/paths/src"
 else
-  echo "❌ Missing: $codexBoxDir/config/paths/src"
+  echo "❌ Missing: $codexBoxDir/config/paths/src.sh"
 fi
+
 ```
 
 > ✅ This ensures your environment is automatically configured with CodexBox paths and features.
